@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "helvetica-light";
+  src: url('helvetica-light/HelveticaLt.ttf');
+} 
+
+@font-face {
+  font-family: "helvetica-oblique";
+  src: url('helvetica-oblique/Helvetica_Oblique');
+}
+
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  background-color: #ffffff;
+  display: inline-block;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  font-family: helvetica-light;
+  color: rgb(0, 0, 0);
+  text-align: right;
+  padding: 20px 60px;
+  text-decoration: none;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+  font-family: helvetica-light;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  font-size: 16px;
+  text-align:right;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  padding: 20px 60px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: rgb(213, 212, 212);
+}
+
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+
+
+/* The grid layout */
+
+
+/* Remove the default margin and padding by setting it to zero. This is more of a personal preference and isn’t technically required. */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* This is a neat little trick to make it responsive on big screen sizes. Set the max-width of the container to a particular width, I used 1224px. This means that our container will never be bigger than 1224px, so if a user has a computer screen that is larger, our images won’t loose their integrity by stretching out to fit their screen. */
+.container {
+  max-width: 1500px;
+  width: 90%;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* We have a class named photo-gallery with two columns inside. Currently, they appear like one big column but we want them side by side. We can easily achieve this with a flexbox property named display: flex. Gap is used to separate the columns. */ 
+.photo-gallery {
+  display: flex;
+  gap: 20px;
+}
+
+/* The images within our columns currently have no structure but we want them to stack on top of each other with a little bit of padding between them. Once again, this can be achieved easily by combining flexbox properties display:flex and flex-direction:column. */ 
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Add some basic styling to the images themselves. */
+.photo img {
+  width: 100%;
+  border-radius: 0px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.photo2 img {
+  max-width: 280px;
+  max-height: 160px;
+  width: 100%;
+  border-radius: 0px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.title {
+  margin-top: 100px;
+  font-size: 100pt;
+  font-style: normal;
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 10pt;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Finally, make the photo gallery completely responsive by making it appear like one big column when the screen size is smaller than 768px. */ 
+@media(max-width: 768px){
+  .photo-gallery {
+    flex-direction: column;
+  }
+}
+
+
+/* text styling */ 
+
+h1 {
+  font-family: helvetica-light;
+  font-size: 20pt;
+  text-align:left;
+  margin-left: 60px;
+  margin-top: 5vh;
+  margin-bottom: 20px;
+}
+
+h1 a {
+  text-decoration: none;
+  font-family: helvetica-light;
+}
+
+h2 {
+  margin-left: 50px;
+  font-size: 12pt;
+  font-style: normal;
+  font-family: helvetica-light;
+  ;
+}
+
+h3 {
+  margin-left: 50px;
+  font-size: 10pt;
+  font-style: normal;
+  font-family: helvetica-light;
+  ;
+}
+
+h4 {
+  margin-left: 0px;
+  font-size: 8pt;
+  font-style: normal;
+  font-family: helvetica-light;
+  ;
+  
+}
+
+h5 {
+  margin-left: 0px;
+  text-align: left;
+  font-size: 16pt;
+  font-style: normal;
+  font-family: helvetica-light;
+  ;
+}
+
+
+p {
+  text-align: left; 
+  margin-left: 50px;
+  margin-right: 400px;
+  font-size: 8pt;
+  margin-bottom: 10px;
+}
+
+
+
+a {
+  color: #000;
+/*  text-decoration: none;*/
+}
+
+a:visited {
+  color: #000;
+}
+
+img {
+  width: 20vw;
+  margin-left: 0px;
+  z-index: -10;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+   /* styles for screens with a maximum width of 600px (e.g. mobile devices) */
+  
+.navbar { 
+    margin-left: 50px;
+    /*text-align: center;*/
+
+  }
+  
+
+  p {
+    margin-left: 50px;
+    margin-right: 5px;
+  }
+
+  body {
+    margin-left: -5vw;
+  }
+
+  h1 {
+    text-align: center;
+    margin-left: 5vw;
+  }
+
+  h2 {
+   /* text-align: center; */
+    margin-left: 50px;
+  }
+
+  .container {
+    margin-left: 40px;
+}
+
+
+
+
+
+
+}
+
