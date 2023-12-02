@@ -13,7 +13,23 @@
   overflow: hidden;
   background-color: #ffffff;
   display: inline-block;
+  max-height: 60px;
+  margin-right: 20px;
 }
+
+
+.instagram-icon {
+    width: 20px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.instagram-link {
+    text-align: center;
+    margin-top: 0px; /* Adjust spacing as needed */
+}
+
 
 /* Navigation links */
 .navbar a {
@@ -25,6 +41,8 @@
   padding: 20px 60px;
   text-decoration: none;
 }
+
+
 
 /* The subnavigation menu */
 .subnav {
