@@ -215,6 +215,18 @@ h5 {
   ;
 }
 
+h6 {
+  margin-left: 40px;
+  letter-spacing: 12px;
+  text-align: center;
+  font-size: 12pt;
+  font-style: normal;
+  font-family: helvetica-light;
+  color:rgb(210, 209, 209)
+  ;
+}
+
+
 
 p {
   text-align: left; 
@@ -283,6 +295,7 @@ img {
   .container {
     margin-left: 40px;
 }
+
 
 
 
