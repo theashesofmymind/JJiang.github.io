@@ -13,8 +13,8 @@
   overflow: hidden;
   background-color: #ffffff;
   display: inline-block;
-  max-height: 60px;
-  margin-right: 20px;
+  max-height: 50px;
+  margin-right: 10px;
 }
 
 
@@ -34,7 +34,7 @@
 /* Navigation links */
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   font-family: helvetica-light;
   color: rgb(0, 0, 0);
   text-align: right;
@@ -267,14 +267,14 @@ img {
    /* styles for screens with a maximum width of 600px (e.g. mobile devices) */
   
 .navbar { 
-    margin-left: 50px;
+    margin-left: 20px;
     /*text-align: center;*/
 
   }
   
 
   p {
-    margin-left: 50px;
+    margin-left: 20px;
     margin-right: 5px;
   }
 
@@ -289,16 +289,12 @@ img {
 
   h2 {
    /* text-align: center; */
-    margin-left: 50px;
+    margin-left: 20px;
   }
 
   .container {
-    margin-left: 40px;
+    margin-left: 20px;
 }
-
-
-
-
 
 
 
