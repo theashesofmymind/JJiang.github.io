@@ -355,85 +355,121 @@ img {
   Append to end of style.css
   Affects screens <= 600px only — desktop unchanged
    ----------------------------- */
+/* -----------------------------
+  Mobile-specific: center homepage images, keep work images size,
+  and keep horizontal-scroll prevention
+  Append this to the END of your style.css
+  Only active on screens <= 600px
+   ----------------------------- */
 @media (max-width: 600px) {
-
-  /* 1) 主容器：文本居中，子元素水平居中 */
-  .container, main, header, .site-header, .site-footer {
-    text-align: center !important;     /* 文本居中 */
+  /* 防止横向滚动（保留并加强） */
+  html, body {
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
   }
-  /* 让直接子元素水平居中（例如 .photo, .card 等） */
+  * {
+    box-sizing: border-box !important;
+    max-width: 100vw !important; /* 防止任意元素跑出视口 */
+  }
+
+  /* 通用容器：在手机上居中内部块级内容，但不改变桌面 max-width */
+  .container, main, header, .site-header, .site-footer {
+    text-align: center !important;
+  }
   .container > * {
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-  /* 2) 图片 / 媒体：块级 + 居中 + 限制最大宽度 */
-  img, picture, video, iframe, .photo img {
+  /* ============================
+     图片处理（针对性覆盖，避免全局缩小 work 图片）
+     ============================ */
+
+  /* 1) 首页 hero / banner 图：尽量使用更明确的选择器（如果你有 .hero/.hero-img/first-photo 可替换为更精确类） */
+  /* 这里覆盖常见情形：位于 .container 直接的 <img>，或 .hero img，或 .site-header img */
+  .container > img,
+  .hero img,
+  header img,
+  .site-header img {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 100% !important;
+    max-width: min(92vw, 900px) !important; /* 在手机上最多占 92% 宽度，桌面不受影响 */
+    width: auto !important;                 /* 保持图片自然比例，避免被强制拉伸为 100% */
     height: auto !important;
+    object-fit: contain !important;
   }
 
-  /* 3) 画廊 / 列：在手机上改为纵向并居中 */
-  .photo-gallery, .gallery, .columns, .row {
+  /* 2) photo-gallery: 在手机上改为竖排并居中，每张图以其本身宽度显示但不超出视口 */
+  .photo-gallery {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 12px !important;
   }
-  .column, .photo {
-    width: 100% !important;           /* 每张图占满可用宽度（等比缩放） */
-    max-width: 420px !important;      /* 可选：限制最大宽度避免过宽 */
+  .photo, .column {
+    width: 100% !important;
+    max-width: 460px !important;  /* 每张图在手机上最多这么宽，防止过大 */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* 图片在画廊中以自然（或原始）宽度显示，但不超出容器 */
+  .photo img, .column img, .gallery img {
+    display: block !important;
+    margin: 0 auto !important;
+    width: auto !important;            /* 不强行设为100%，避免缩小高分辨图 */
+    max-width: 100% !important;        /* 但也不超过容器 */
+    height: auto !important;
+    object-fit: contain !important;
   }
 
-  /* 4) 卡片 / 文本框 / 表单：居中并自适应宽度 */
+  /* 3) 对于卡片/文字框/表单：居中并留白 */
   .card, .panel, .box, form, .form, input, textarea {
     margin-left: auto !important;
     margin-right: auto !important;
-    width: calc(100% - 2rem) !important; /* 给左右留 1rem 内边距 */
+    width: calc(100% - 2rem) !important;
     max-width: 560px !important;
     box-sizing: border-box !important;
   }
 
-  /* 5) 导航：保持你之前的一行四个或居中展示 */
+  /* ============================
+     导航保持：一行 4 个，居中并加 gap
+     ============================ */
   .navbar {
+    display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
     gap: 10px !important;
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    flex-wrap: nowrap !important;
   }
   .navbar a {
+    flex: 0 0 auto !important;
     text-align: center !important;
-    white-space: nowrap !important;    /* 防止单个链接内部换行 */
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding: 6px 8px !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
   }
 
-  /* 6) 标题：保持原样但在窄屏下中心对齐 */
+  /* ============================
+     标题/文本：窄屏居中且可换行
+     ============================ */
   .site-title, .title, h1, h2 {
     text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0.25rem !important;
-    padding-right: 0.25rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
     word-break: break-word !important;
+    white-space: normal !important;
   }
 
-  /* 7) 防止横向滚动：强制所有元素不超出视口 */
-  html, body {
-    overflow-x: hidden !important;
-  }
-  * {
-    max-width: 100vw !important;
-    box-sizing: border-box !important;
-  }
-
-  /* small tweaks: 如果某些 element 有极大 padding/margin，缩小它们 */
+  /* 细微调整：防止极大内边距或 margin 在手机上撑开 */
   .big-padding, .hero, .masthead {
     padding-left: 0.8rem !important;
     padding-right: 0.8rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
+}
 }
 }
