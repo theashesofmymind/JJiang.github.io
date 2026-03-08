@@ -337,3 +337,16 @@ img {
 
 }
 
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: nowrap;      /* 保持一行 */
+  }
+
+  .navbar a {
+    flex: 1;                /* 每个平均分配宽度 */
+    text-align: center;
+    padding: 8px 0;         /* 缩小内边距避免撑开 */
+    font-size: 13px;        /* 稍微缩小字体防止溢出 */
+  }
+}
