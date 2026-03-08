@@ -336,17 +336,19 @@ img {
 
 
 }
-
-
 @media (max-width: 600px) {
   .navbar {
-    flex-wrap: nowrap;      /* 保持一行 */
+    display: flex;
+    justify-content: center;  /* 居中整组 */
+    align-items: center;
+    gap: 12px;                /* 每个之间的空隙 */
+    flex-wrap: nowrap;        /* 保持一行 */
   }
 
   .navbar a {
-    flex: 1;                /* 每个平均分配宽度 */
-    text-align: center;
-    padding: 8px 0;         /* 缩小内边距避免撑开 */
-    font-size: 13px;        /* 稍微缩小字体防止溢出 */
+    flex: 0 0 auto;           /* 不拉伸 */
+    padding: 6px 10px;        /* 适度内边距 */
+    font-size: 13px;
   }
+
 }
