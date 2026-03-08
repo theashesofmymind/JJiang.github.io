@@ -350,5 +350,90 @@ img {
     padding: 6px 10px;        /* 适度内边距 */
     font-size: 13px;
   }
+/* -----------------------------
+  Mobile: center images / text boxes / gallery / cards
+  Append to end of style.css
+  Affects screens <= 600px only — desktop unchanged
+   ----------------------------- */
+@media (max-width: 600px) {
 
+  /* 1) 主容器：文本居中，子元素水平居中 */
+  .container, main, header, .site-header, .site-footer {
+    text-align: center !important;     /* 文本居中 */
+  }
+  /* 让直接子元素水平居中（例如 .photo, .card 等） */
+  .container > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 2) 图片 / 媒体：块级 + 居中 + 限制最大宽度 */
+  img, picture, video, iframe, .photo img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 3) 画廊 / 列：在手机上改为纵向并居中 */
+  .photo-gallery, .gallery, .columns, .row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .column, .photo {
+    width: 100% !important;           /* 每张图占满可用宽度（等比缩放） */
+    max-width: 420px !important;      /* 可选：限制最大宽度避免过宽 */
+  }
+
+  /* 4) 卡片 / 文本框 / 表单：居中并自适应宽度 */
+  .card, .panel, .box, form, .form, input, textarea {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: calc(100% - 2rem) !important; /* 给左右留 1rem 内边距 */
+    max-width: 560px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 5) 导航：保持你之前的一行四个或居中展示 */
+  .navbar {
+    justify-content: center !important;
+    gap: 10px !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .navbar a {
+    text-align: center !important;
+    white-space: nowrap !important;    /* 防止单个链接内部换行 */
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  /* 6) 标题：保持原样但在窄屏下中心对齐 */
+  .site-title, .title, h1, h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    word-break: break-word !important;
+  }
+
+  /* 7) 防止横向滚动：强制所有元素不超出视口 */
+  html, body {
+    overflow-x: hidden !important;
+  }
+  * {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* small tweaks: 如果某些 element 有极大 padding/margin，缩小它们 */
+  .big-padding, .hero, .masthead {
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
+}
 }
