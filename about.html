@@ -17,7 +17,16 @@
 
 </head>
 
-<body>
+<head>
+    <style>
+        body{background-color:rgb(255, 255, 255);   font-family: "helvetica-light";
+    src: url('helvetica-light/HelveticaLt.ttf'); text-align: right;}
+        p{color:rgb(46, 46, 46); font-size: 20px}
+        h1{font-size:30px;}
+     </style>   
+  </head>
+
+
 
 <!-- The navigation menu -->
 
@@ -36,38 +45,80 @@
     </a>
   </div>
 
-  <html>
-    <head>
-        <title>Image and Text Layout</title>
-        <style>
-            .container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 60px;
-            }
-    
-            .image {
-                flex: 1;
-            }
-    
-            .text {
-                font-size: 10px;
-                font-family: "helvetica-light";
-                 src: url('helvetica-light/HelveticaLt.ttf'); 
-                flex: 1;
-                padding: 0 10px;
-                text-align: left;
-            }
-        </style>
-    </head>
+  <br>
+  <br>
+  <br>
+
+<html>
+<head>
+    <title>Enlarged Image with Close Functionality</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            border: 0px solid #ddd;
+            max-width: 1000px;
+        }
+
+        .text {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .image {
+            max-width: 400px;
+            max-height: 400px;
+            flex: 1;
+            text-align: right;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        .image img {
+            max-width: 400px;
+            max-height: 400px;
+            max-width: 100%;
+            height: auto;
+            max-height: 500px; /* Adjust the maximum height of the image */
+            cursor: pointer;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <script>
+        function openImage() {
+            document.getElementById("overlay").style.display = "flex";
+        }
+
+        function closeImage() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+</head>
     <body>
         <div class="container">
             <div class="image">
                 <img src="profile.jpg" alt="Image" style="max-width: 100%;">
             </div>
             <div class="text">
-                <h2>b. 2000, Shanghai. </h2>
+                <h2 style="text-align: left;">b. 2000, Shanghai. </h2>
                 <br>
                 <p style="font-size: 16px; text-align: left; margin-right: 0vw;"> based in Oxford / Shanghai.
                     <br>
@@ -82,6 +133,15 @@
     </html>
 
 <br>
+
+<head>
+  <style>
+      body{background-color:rgb(255, 255, 255);   font-family: "helvetica-light";
+  src: url('helvetica-light/HelveticaLt.ttf'); text-align: right;}
+      p{color:rgb(46, 46, 46); font-size: 20px}
+      h1{font-size:30px;}
+   </style>   
+</head>
 
 <head>
     <title>Image and Text Container</title>
@@ -109,7 +169,7 @@
     <br>
     <br>
     <div class="text">
-        <h2 style="font-size: 16px; text-align: center;"> ------------ </a></h2>
+        <h2 style="font-size: 16px; text-align: center;">  </a></h2>
         </div>
     <div class="container" style="max-width: 900px;">
         <div class="text">
@@ -133,10 +193,9 @@
         </p>
     </div>
     </div>
-</body>
 
     <div class="text">
-        <h2 style="font-size: 16px; text-align: center;"> ------------ </a></h2>
+        <h2 style="font-size: 16px; text-align: center;"> - </a></h2>
         </div>
 
         </div>
@@ -249,20 +308,11 @@
 <br>
 <br>
 <br>
-</div>
-<p style="font-size: 16px; text-align: center; margin-right: 0vw;">© 2023 J Jiang</a></p>
 
-<head>
-  <style>
-      body{background-color:rgb(255, 255, 255);   font-family: "helvetica-light";
-  src: url('helvetica-light/HelveticaLt.ttf'); text-align: right;}
-      p{color:rgb(46, 46, 46); font-size: 20px}
-      h1{font-size:30px;}
-   </style>   
-</head>
 <br>
 <br>
+<div id="footer"></div>
+<script src="loadFooter.js"></script>
 </body>
 
 </html>
-
